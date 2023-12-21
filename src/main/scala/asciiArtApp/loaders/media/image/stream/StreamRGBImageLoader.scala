@@ -8,11 +8,18 @@ import java.awt.Color
 import java.io.InputStream
 import javax.imageio.ImageIO
 
-trait StreamRGBImageLoader[S, I <: InputStream] extends ImageLoader[S, RGBImage] {
-  def loadFromStream(stream: I): RGBImage = {
+abstract class StreamRGBImageLoader[I <: InputStream](val stream: InputStream)
+    extends ImageLoader[RGBImage] {
+
+  private var closed = false
+
+  def loadFromStream(): RGBImage = {
+    if (closed)
+      throw new Exception("Input stream has been closed")
+
     val image = ImageIO.read(stream)
 
-    val result = RGBImage(image.getWidth(), image.getHeight())
+    val result = new RGBImage(image.getWidth(), image.getHeight())
 
     for (i <- 0 until image.getWidth())
       for (j <- 0 until image.getHeight()) {
@@ -21,5 +28,13 @@ trait StreamRGBImageLoader[S, I <: InputStream] extends ImageLoader[S, RGBImage]
       }
 
     result
+  }
+
+  def close(): Unit = {
+    if (closed)
+      return
+
+    stream.close()
+    closed = true
   }
 }

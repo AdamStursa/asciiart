@@ -36,7 +36,7 @@ class FlipXTest extends FunSuite {
     assert(array(1)(2) == 3)
   }
 
-  test("empty"){
+  test("empty") {
     assert(FlipX[Int](Array()).isEmpty)
     val array = FlipX[Int](Array(Array()))
     assert(!array.isEmpty)

@@ -1,6 +1,5 @@
 package loaders
 
-trait Loader[S, T] {
-  val source: S
+trait Loader[T] {
   def load(): T
 }

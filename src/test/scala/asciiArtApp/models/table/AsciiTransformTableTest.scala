@@ -5,7 +5,7 @@ import org.scalatest.FunSuite
 
 import scala.collection.immutable.SortedMap
 
-class AsciiTransformTableTest extends FunSuite{
+class AsciiTransformTableTest extends FunSuite {
   test("getGrayscaleValue") {
     val table = new AsciiTransformTable()
     table.addTransformPair(0, '0')
@@ -13,7 +13,8 @@ class AsciiTransformTableTest extends FunSuite{
     table.addTransformPair(240, '2')
     table.addTransformPair(255, '3')
 
-    assert(table.rows == SortedMap(0 -> '0', 120 -> '1', 240 -> '2', 255 -> '3'))
+    assert(
+      table.rows == SortedMap(0 -> '0', 120 -> '1', 240 -> '2', 255 -> '3'))
 
     assert(table.getGrayscaleAsciiValue(0) == '0')
     assert(table.getGrayscaleAsciiValue(100) == '0')
@@ -23,7 +24,7 @@ class AsciiTransformTableTest extends FunSuite{
     assert(table.getGrayscaleAsciiValue(255) == '3')
   }
 
-  test( "getGrayscaleDefaultValue") {
+  test("getGrayscaleDefaultValue") {
     val table = new AsciiTransformTable()
 
     assert(table.getGrayscaleAsciiValue(0) == ' ')

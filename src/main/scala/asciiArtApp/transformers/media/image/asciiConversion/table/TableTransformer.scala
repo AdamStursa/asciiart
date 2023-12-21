@@ -10,11 +10,14 @@ abstract class TableTransformer extends ASCIIConversionTransformer {
   val name: String
 
   override def transform(from: GrayscaleImage): ASCIIImage = {
-    val asciiImage: ASCIIImage = ASCIIImage(from.width, from.height)
+    val asciiImage: ASCIIImage = new ASCIIImage(from.width, from.height)
 
     for (x <- 0 until from.height)
       for (y <- 0 until from.width)
-        asciiImage.setPixel(x, y, transformTable.getGrayscaleAsciiValue(from.getPixel(x, y).value))
+        asciiImage.setPixel(
+          x,
+          y,
+          transformTable.getGrayscaleAsciiValue(from.getPixel(x, y).value))
 
     asciiImage
   }

@@ -25,9 +25,10 @@ class Rotate270Test extends FunSuite {
     assert(array(2)(1) == 4)
   }
 
-  test( "badArrayInput") {
+  test("badArrayInput") {
     assertThrows[IllegalArgumentException](Rotate270[Int](Array()))
     assertThrows[IllegalArgumentException](Rotate270[Int](Array(Array())))
-    assertThrows[IllegalArgumentException](Rotate270[Int](Array(Array(1, 2), Array(1, 2, 3))))
+    assertThrows[IllegalArgumentException](
+      Rotate270[Int](Array(Array(1, 2), Array(1, 2, 3))))
   }
 }

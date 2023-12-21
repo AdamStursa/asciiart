@@ -1,7 +1,7 @@
 package exporters
 
-trait Exporter[T]
-{
+trait Exporter[T] {
+
   /**
    * Exports something somewhere
    * @param item The item to export

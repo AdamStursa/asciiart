@@ -12,7 +12,7 @@ class Rotate90Test extends FunSuite {
     assert(array(1).length == 2)
     assert(array(2).length == 2)
   }
-  
+
   test("valuesRotate90") {
     val array = Rotate90[Int](Array(Array(1, 2, 3), Array(4, 5, 6)))
 
@@ -25,9 +25,10 @@ class Rotate90Test extends FunSuite {
     assert(array(2)(1) == 3)
   }
 
-  test( "badArrayInput") {
+  test("badArrayInput") {
     assertThrows[IllegalArgumentException](Rotate90[Int](Array()))
     assertThrows[IllegalArgumentException](Rotate90[Int](Array(Array())))
-    assertThrows[IllegalArgumentException](Rotate90[Int](Array(Array(1, 2), Array(1, 2, 3))))
+    assertThrows[IllegalArgumentException](
+      Rotate90[Int](Array(Array(1, 2), Array(1, 2, 3))))
   }
 }

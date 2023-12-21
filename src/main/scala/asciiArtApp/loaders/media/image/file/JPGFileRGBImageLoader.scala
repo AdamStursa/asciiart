@@ -1,7 +1,8 @@
 package asciiArtApp.loaders.media.image.file
 import java.io.File
 
-class JPGFileRGBImageLoader(override val source: File) extends FileRGBImageLoader(source) {
+class JPGFileRGBImageLoader(override val file: File)
+    extends FileRGBImageLoader(file) {
   override val expectedMimes: Set[String] = JPGFileRGBImageLoader.expectedMimes
 }
 
