@@ -1,4 +1,4 @@
-package asciiArtApp.console.view.renderers
+package asciiArtApp.terminal.view.renderers
 
 import asciiArtApp.models.media.image.ASCIIImage
 import asciiArtApp.models.media.pixel.CharacterPixel.covertToChar

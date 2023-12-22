@@ -13,7 +13,7 @@ class RGBToGrayscaleTransformerTest extends FunSuite with ImageComparator {
       Array(
         Array(RGBPixel(42, 42, 42), RGBPixel(0, 169, 255)),
         Array(RGBPixel(142, 142, 142), RGBPixel(176, 97, 215))))
-    val transformed = RGBToGrayscaleTransformer(rgbImage)
+    val transformed = new RGBToGrayscaleTransformer().transform(rgbImage)
 
     val transformedRef = new GrayscaleImage(2, 2)
     transformedRef.setAllPixels(Array(Array(42, 128), Array(142, 134)))

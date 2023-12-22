@@ -4,7 +4,7 @@ import asciiArtApp.models.media.image.{GrayscaleImage, RGBImage}
 import asciiArtApp.models.media.pixel.RGBPixel
 import asciiArtApp.transformers.media.image.ImageToImageTransformer
 
-private class RGBToGrayscaleTransformer
+class RGBToGrayscaleTransformer
     extends ImageToImageTransformer[RGBImage, GrayscaleImage] {
 
   override def transform(original: RGBImage): GrayscaleImage = {
@@ -23,9 +23,4 @@ private class RGBToGrayscaleTransformer
   private def grayscaleValue(pixel: RGBPixel): Int =
     Math.round(
       (0.3f * pixel.red) + (0.59f * pixel.green) + (0.11f * pixel.blue))
-}
-
-object RGBToGrayscaleTransformer {
-  def apply(rgbImage: RGBImage): GrayscaleImage =
-    new RGBToGrayscaleTransformer().transform(rgbImage)
 }
