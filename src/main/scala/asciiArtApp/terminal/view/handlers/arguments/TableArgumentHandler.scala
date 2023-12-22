@@ -4,9 +4,10 @@ import asciiArtApp.terminal.controller.Controller
 import asciiArtApp.terminal.view.handlers.EqualityArgumentHandler
 import asciiArtApp.transformers.media.image.asciiConversion.ASCIIConversionTransformer
 
-class TableArgumentHandler(controller: Controller) extends EqualityArgumentHandler("--table"){
+class TableArgumentHandler(controller: Controller)
+    extends EqualityArgumentHandler("--table") {
 
-  override def processArgument(argsIterator: Iterator[String]): Unit = {
+  override def processArgument(argsIterator: Iterator[String]): Unit =
     if (!argsIterator.hasNext)
       controller.showError("Argument table must have value specified")
     else {
@@ -17,5 +18,4 @@ class TableArgumentHandler(controller: Controller) extends EqualityArgumentHandl
       else
         controller.setASCIITransformer(transformer.get)
     }
-  }
 }

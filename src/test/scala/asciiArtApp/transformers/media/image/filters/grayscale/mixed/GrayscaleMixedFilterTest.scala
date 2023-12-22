@@ -1,9 +1,16 @@
 package asciiArtApp.transformers.media.image.filters.grayscale.mixed
 
 import asciiArtApp.models.media.image.GrayscaleImage
-import asciiArtApp.transformers.media.image.filters.grayscale.flip.{GrayscaleImageFlipX, GrayscaleImageFlipY}
+import asciiArtApp.transformers.media.image.filters.grayscale.flip.{
+  GrayscaleImageFlipX,
+  GrayscaleImageFlipY
+}
 import asciiArtApp.transformers.media.image.filters.grayscale.invert.GrayscaleImageInvert
-import asciiArtApp.transformers.media.image.filters.grayscale.rotate.{GrayscaleImageRotate180, GrayscaleImageRotate270, GrayscaleImageRotate90}
+import asciiArtApp.transformers.media.image.filters.grayscale.rotate.{
+  GrayscaleImageRotate180,
+  GrayscaleImageRotate270,
+  GrayscaleImageRotate90
+}
 import helpers.ImageComparator
 import org.scalatest.FunSuite
 

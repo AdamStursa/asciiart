@@ -4,7 +4,6 @@ import helpers.{ImageComparator, TestWithImageFiles}
 import org.scalatest.FunSuite
 
 import java.io.{File, FileOutputStream}
-import java.nio.file.Files
 
 class PNGFileRGBImageLoaderTest
     extends FunSuite
@@ -30,7 +29,6 @@ class PNGFileRGBImageLoaderTest
 
     ensureCreated(jpgFile.getPath)
     writeJPGToStream(new FileOutputStream(jpgFile))
-    println(Files.probeContentType(jpgFile.toPath))
 
     try {
       val loader = new PNGFileRGBImageLoader(jpgFile)

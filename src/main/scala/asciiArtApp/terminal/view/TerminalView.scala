@@ -3,7 +3,7 @@ package asciiArtApp.terminal.view
 import asciiArtApp.terminal.controller.Controller
 import asciiArtApp.terminal.errors.CommandProcessError
 import asciiArtApp.terminal.view.handlers.ArgumentHandler
-import asciiArtApp.terminal.view.handlers.arguments.{CustomTableArgumentHandler, FlipArgumentHandler, ImageArgumentHandler, ImageRandomArgumentHandler, InvertArgumentHandler, OutputConsoleArgumentHandler, OutputFileArgumentHandler, RotateArgumentHandler, TableArgumentHandler}
+import asciiArtApp.terminal.view.handlers.arguments._
 import asciiArtApp.terminal.view.handlers.errors.ArgumentNotFoundHandler
 
 class TerminalView(controller: Controller, handlers: Seq[ArgumentHandler]) {
@@ -15,10 +15,11 @@ class TerminalView(controller: Controller, handlers: Seq[ArgumentHandler]) {
         var handlerNotFound = true
 
         val arg = argsIterator.next()
-        handlers foreach(h => if (handlerNotFound && h.handle(arg)) {
-          h.processArgument(argsIterator)
-          handlerNotFound = false
-        })
+        handlers foreach (h =>
+          if (handlerNotFound && h.handle(arg)) {
+            h.processArgument(argsIterator)
+            handlerNotFound = false
+          })
       }
 
       controller.showProcessedImage()
@@ -29,10 +30,13 @@ class TerminalView(controller: Controller, handlers: Seq[ArgumentHandler]) {
 }
 
 object TerminalView {
-  def apply(controller: Controller): TerminalView = new TerminalView(controller, getHandlers(controller))
+  def apply(controller: Controller): TerminalView =
+    new TerminalView(controller, getHandlers(controller))
 
   private def getHandlers(controller: Controller): Seq[ArgumentHandler] =
-    Seq(new ImageArgumentHandler(controller),
+    Seq(
+      new HelpArgumentHandler(controller),
+      new ImageArgumentHandler(controller),
       new ImageRandomArgumentHandler(controller),
       new TableArgumentHandler(controller),
       new CustomTableArgumentHandler(controller),
@@ -41,5 +45,6 @@ object TerminalView {
       new InvertArgumentHandler(controller),
       new OutputConsoleArgumentHandler(controller),
       new OutputFileArgumentHandler(controller),
-      new ArgumentNotFoundHandler(controller))
+      new ArgumentNotFoundHandler(controller)
+    )
 }

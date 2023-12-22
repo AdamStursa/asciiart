@@ -12,7 +12,8 @@ object ASCIIConversionTransformer {
     name match {
       case n if n.toLowerCase == LinearTableTransformer.name.toLowerCase =>
         Some(new LinearTableTransformer())
-      case n if n.toLowerCase == MoreMidTonesTableTransformer.name.toLowerCase =>
+      case n
+          if n.toLowerCase == MoreMidTonesTableTransformer.name.toLowerCase =>
         Some(new MoreMidTonesTableTransformer())
       case _ => None
     }

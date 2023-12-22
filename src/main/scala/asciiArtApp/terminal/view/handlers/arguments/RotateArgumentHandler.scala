@@ -6,7 +6,8 @@ import asciiArtApp.transformers.media.image.filters.grayscale.rotate.{GrayscaleI
 
 import scala.util.matching.Regex
 
-class RotateArgumentHandler(controller: Controller) extends EqualityArgumentHandler("--rotate"){
+class RotateArgumentHandler(controller: Controller)
+    extends EqualityArgumentHandler("--rotate") {
 
   private val ninetyClockwise: Regex = """^(?!-)\+?90|-270""".r
   private val oneEighty: Regex = """-180|\+?180""".r
@@ -21,11 +22,14 @@ class RotateArgumentHandler(controller: Controller) extends EqualityArgumentHand
 
     val degrees: String = argsIterator.next()
     degrees match {
-      case ninetyClockwise() => controller.addGrayscaleFilter(new GrayscaleImageRotate90)
-      case oneEighty() => controller.addGrayscaleFilter(new GrayscaleImageRotate180)
-      case twoSeventyClockwise() => controller.addGrayscaleFilter(new GrayscaleImageRotate270)
+      case ninetyClockwise() =>
+        controller.addGrayscaleFilter(new GrayscaleImageRotate90)
+      case oneEighty() =>
+        controller.addGrayscaleFilter(new GrayscaleImageRotate180)
+      case twoSeventyClockwise() =>
+        controller.addGrayscaleFilter(new GrayscaleImageRotate270)
       case zero() =>
-      case _ => controller.showError("Invalid value of degrees")
+      case _      => controller.showError("Invalid value of degrees")
     }
 
   }

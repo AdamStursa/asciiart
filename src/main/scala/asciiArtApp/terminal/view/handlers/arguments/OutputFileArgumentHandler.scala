@@ -2,12 +2,12 @@ package asciiArtApp.terminal.view.handlers.arguments
 
 import asciiArtApp.terminal.controller.Controller
 import asciiArtApp.terminal.view.handlers.EqualityArgumentHandler
-import asciiArtApp.transformers.media.image.filters.grayscale.flip.{GrayscaleImageFlipX, GrayscaleImageFlipY}
 import exporters.text.FileOutputExporter
 
 import java.io.File
 
-class OutputFileArgumentHandler(controller: Controller) extends EqualityArgumentHandler("--output-file") {
+class OutputFileArgumentHandler(controller: Controller)
+    extends EqualityArgumentHandler("--output-file") {
 
   override def processArgument(argsIterator: Iterator[String]): Unit = {
     if (!argsIterator.hasNext) {

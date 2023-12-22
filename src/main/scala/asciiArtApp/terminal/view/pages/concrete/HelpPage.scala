@@ -2,7 +2,7 @@ package asciiArtApp.terminal.view.pages.concrete
 
 import asciiArtApp.terminal.view.pages.TextPage
 
-class HelpPage extends TextPage{
+class HelpPage extends TextPage {
 
   override def render(): String =
     """
@@ -30,5 +30,6 @@ class HelpPage extends TextPage{
       |   (<degrees> must be a multiply of 90 in range (-270; 270))
       | --flip x|y : flip image on x or y axis
       | --invert : inverts grayscale values of the image
+      |
       |""".stripMargin
 }

@@ -6,7 +6,8 @@ import asciiArtApp.transformers.media.image.rgbToGrayscale.RGBToGrayscaleTransfo
 import exporters.text.{StdErrorExporter, StdOutputExporter}
 
 object Main extends App {
-  private val controller = new TerminalController(new StdErrorExporter, new StdOutputExporter)
+  private val controller =
+    new TerminalController(new StdErrorExporter, new StdOutputExporter)
   controller.setGrayscaleTransformer(new RGBToGrayscaleTransformer)
   private val terminalView = TerminalView(controller)
   terminalView.processArguments(args)

@@ -1,5 +1,3 @@
 package asciiArtApp.terminal.view.pages
 
-trait TextPage extends Page[String] {
-
-}
+trait TextPage extends Page[String] {}

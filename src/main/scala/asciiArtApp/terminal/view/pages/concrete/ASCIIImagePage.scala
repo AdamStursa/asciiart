@@ -9,6 +9,6 @@ class ASCIIImagePage(image: ASCIIImage) extends TextPage {
   override def render(): String = {
     val renderer = new ASCIIImageTextRenderer
 
-    renderer.render(image)
+    renderer.render(image) + "\n"
   }
 }

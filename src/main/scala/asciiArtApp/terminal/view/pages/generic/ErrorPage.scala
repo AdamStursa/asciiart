@@ -4,5 +4,5 @@ import asciiArtApp.terminal.view.pages.TextPage
 
 class ErrorPage(message: String) extends TextPage {
 
-  override def render(): String = "Error: "+message
+  override def render(): String = "Error: " + message + "\n"
 }

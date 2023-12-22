@@ -1,6 +1,9 @@
 package asciiArtApp.transformers.media.image.asciiConversion
 
-import asciiArtApp.transformers.media.image.asciiConversion.table.{LinearTableTransformer, MoreMidTonesTableTransformer}
+import asciiArtApp.transformers.media.image.asciiConversion.table.{
+  LinearTableTransformer,
+  MoreMidTonesTableTransformer
+}
 import org.scalatest.FunSuite
 
 class ASCIIConversionTransformerTest extends FunSuite {

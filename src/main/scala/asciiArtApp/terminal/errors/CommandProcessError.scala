@@ -1,5 +1,3 @@
 package asciiArtApp.terminal.errors
 
-class CommandProcessError extends Error{
-
-}
+class CommandProcessError extends Error {}
